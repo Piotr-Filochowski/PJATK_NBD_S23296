@@ -1,11 +1,5 @@
 object Task4 {
 
-//  4.	Dla listy z ćwiczenia 1 napisz funkcję tworzącą w oparciu o nią stringa z elementami oddzielonymi przecinkami
-//      korzystając z:
-//    a.	Metody foldl
-//    b.	Metody foldr
-//    c.	Metody foldl wypisując tylko dni z nazwami zaczynającymi się na „P”
-
   val daysOfWeek = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
   def calculate(): Unit = {

@@ -7,6 +7,7 @@ object Exercises1 {
     Task2.calculate()
     Task3.calculate()
     Task4.calculate()
+    Task5.calculate()
   }
 
 
