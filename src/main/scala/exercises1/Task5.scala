@@ -20,7 +20,9 @@ object Task5 {
       var newValue = v * 0.9
       newMap += (k ->  newValue)
     }
+
     println("new values: ")
     for ((k,v) <- newMap) println("key: %s, value: %s: ", k, v)
+    println("------------------------------------------------------------------------------------------")
   }
 }
