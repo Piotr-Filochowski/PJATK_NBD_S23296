@@ -4,7 +4,7 @@ object Exercises1 {
   val daysOfWeek = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
 
-  def main(args: Array[String]): Unit = {
+//  def main(args: Array[String]): Unit = {
 //    Task1.calculate()
 //    Task2.calculate()
 //    Task3.calculate()
@@ -14,8 +14,8 @@ object Exercises1 {
 //    Task7.calculate()
 //    Task8.calculate()
 //    Task9.calculate()
-    Task10.calculate()
-  }
+//    Task10.calculate()
+//  }
 
 
 
