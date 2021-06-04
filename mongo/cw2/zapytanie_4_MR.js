@@ -1,11 +1,9 @@
 
 var mapFunction = function () {
-    for (i = 0; i < this.credit.length; i++) {
-        var height = parseInt(this.height) / 100
-        var weight = parseInt(this.weight)
-        var bmi = weight / (height * height)
-        emit(this.nationality, bmi)
-    }
+    var height = parseInt(this.height) / 100
+    var weight = parseInt(this.weight)
+    var bmi = weight / (height * height)
+    emit(this.nationality, bmi)
 }
 
 var reduceFunction = function (key, values) {
