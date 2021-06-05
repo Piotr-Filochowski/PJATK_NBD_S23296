@@ -5,19 +5,20 @@ object Task5 {
 
   def calculate(): Unit = {
     println("Zad 5")
-    var person1 = new Person("Adam", "Abacki", 111.1)
+    var person1 = new Person("person", "Abacki", 0.5)
     var employee = new Person("employee", "Babacki", 222.2) with Employee
     var student = new Person("student", "Cabacki", 333.3) with Student
     var teacher = new Person("teacher", "Dabacki", 444.4) with Teacher
-    println("Im " + employee.name + " my tax is " + employee.getTax())
-    println("Im " + student.name + " my tax is " + student.getTax())
-    println("Im " + teacher.name + " my tax is " + teacher.getTax())
+    println("Im " + person1.name + " my tax is " + person1.tax)
+    println("Im " + employee.name + " my tax is " + employee.tax)
+    println("Im " + student.name + " my tax is " + student.tax)
+    println("Im " + teacher.name + " my tax is " + teacher.tax)
 
 
     var studentEmployee = new Person("student employee", "Cabacki", 333.3) with Student with Employee
     var employeeStudent = new Person("employee Student", "Cabacki", 333.3) with Employee with Student
-    println("Im " + studentEmployee.name + " my tax is " + studentEmployee.getTax())
-    println("Im " + employeeStudent.name + " my tax is " + employeeStudent.getTax())
+    println("Im " + studentEmployee.name + " my tax is " + studentEmployee.tax)
+    println("Im " + employeeStudent.name + " my tax is " + employeeStudent.tax)
 
   }
 }

@@ -1,11 +1,13 @@
 package excersises2.task5
 
-trait Employee {
+trait Employee extends Person {
 
   var salary = 1000.0
 
-  def getTax() = 0.2;
-//  def tax = 0.2
+  override val tax = 0.2;
+
+
+
   def setSalary(newSalary: Double): Unit = {
     salary = newSalary;
   }
