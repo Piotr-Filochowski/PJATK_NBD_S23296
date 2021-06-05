@@ -20,7 +20,9 @@ object Task2 {
   def task2RecurentReverse(concat: String, days: List[String]): String = {
     if (days.isEmpty) {
       return concat
-    } else return task2RecurentReverse(concat + daysOfWeek.last + " ", daysOfWeek.init)
+    } else {
+      return task2RecurentReverse(concat + days.last + " ", days.init)
+    }
   }
 }
 

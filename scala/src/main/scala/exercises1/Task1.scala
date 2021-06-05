@@ -18,7 +18,7 @@ object Task1 {
     var i = 0
     var out = ""
     while (i < days.length) {
-      out.concat(days(i) + " ")
+      out = out.concat(days(i) + " ")
       i = i + 1
     }
     return out
@@ -28,17 +28,18 @@ object Task1 {
     var out = ""
     for (day <- days) {
       if (day.startsWith("P") || day.startsWith("p")) {
-        out.concat(day + " ")
+        out = out.concat(day + " ")
       }
     }
     return out
   }
 
-  private def forLoop(days: List[String]) = {
+  private def forLoop(days: List[String]): String= {
     var out = ""
     for (day <- days) {
-      out.concat(day + " ")
+      out = out.concat(day + " ")
     }
+    return out
   }
 }
 

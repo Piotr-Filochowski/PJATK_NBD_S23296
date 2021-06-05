@@ -2,10 +2,10 @@ package excersises2.task5
 
 trait Employee {
 
-  var salary: Double
+  var salary = 1000.0
 
-  val tax = 0.2;
-
+  def getTax() = 0.2;
+//  def tax = 0.2
   def setSalary(newSalary: Double): Unit = {
     salary = newSalary;
   }

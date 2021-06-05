@@ -6,6 +6,9 @@ object Exercise2 {
 
 
   def calculate(): Unit = {
+    println()
+    println("                 Cwiczenia 2")
+    println()
     Task1.calculate()
     Task2.calculate()
     Task3.calculate()

@@ -2,17 +2,22 @@ package excersises2.task5
 
 object Task5 {
 
+
   def calculate(): Unit = {
-    var person1 = new Person("Adam", "Abacki", 111.1);
-    var person2 = new Person("Bartek", "Babacki", 222.2) with Employee {
-      override var salary: Double = 1000
-    }
-    var person3 = new Person("Czarek", "Cabacki", 333.3) with Student{
-      override var salary: Double = 1000
-    }
-    var person4 = new Person("Dawid", "Dabacki", 444.4) with Teacher{
-      override var salary: Double = 1000
-    }
+    println("Zad 5")
+    var person1 = new Person("Adam", "Abacki", 111.1)
+    var employee = new Person("employee", "Babacki", 222.2) with Employee
+    var student = new Person("student", "Cabacki", 333.3) with Student
+    var teacher = new Person("teacher", "Dabacki", 444.4) with Teacher
+    println("Im " + employee.name + " my tax is " + employee.getTax())
+    println("Im " + student.name + " my tax is " + student.getTax())
+    println("Im " + teacher.name + " my tax is " + teacher.getTax())
+
+
+    var studentEmployee = new Person("student employee", "Cabacki", 333.3) with Student with Employee
+    var employeeStudent = new Person("employee Student", "Cabacki", 333.3) with Employee with Student
+    println("Im " + studentEmployee.name + " my tax is " + studentEmployee.getTax())
+    println("Im " + employeeStudent.name + " my tax is " + employeeStudent.getTax())
 
   }
 }
