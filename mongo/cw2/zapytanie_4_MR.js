@@ -1,41 +1,58 @@
 
 var mapFunction = function () {
-    var height = parseInt(this.height) / 100
-    var weight = parseInt(this.weight)
-    var bmi = weight / (height * height)
-    emit(this.nationality, bmi)
+    var height = parseFloat(this.height) / 100
+    var weight = parseFloat(this.weight)
+    var myBmi = weight / (height * height)
+    var out = {
+        sumBmi: myBmi,
+        count: 1,
+        maxBmi: myBmi,
+        minBmi: myBmi,
+    }
+    emit(this.nationality, out)
 }
 
 var reduceFunction = function (key, values) {
-
-    var sumBmi = 0;
-    var maxBmi = 0;
-    var minBmi = 10000;
+    var maxBmi = 0.0;
+    var minBmi = 10000.0;
+    var sumBmi = 0.0;
+    var sumCount = 0;
     for (i = 0; i < values.length; i++) {
-        sumBmi += values[i]
-        if (values[i] < minBmi) {
-            minBmi = values[i]
+         sumBmi += values[i].sumBmi
+         sumCount += values[i].count; 
+         if (values[i].sumBmi < minBmi) {
+            minBmi = values[i].sumBmi
         }
-        if (values[i] > maxBmi) {
-            maxBmi = values[i]
+        if (values[i].sumBmi > maxBmi) {
+            maxBmi = values[i].sumBmi
         }
     }
     return {
-        nationality: key,
+        sumBmi: sumBmi,
+        count: sumCount,
         maxBmi: maxBmi,
         minBmi: minBmi,
-        avgBmi: sumBmi / values.length
     }
 }
 
-db.people.mapReduce(
-    mapFunction,
-    reduceFunction,
-    { out: "outCollection" }
-)
+var finalize2 = function (key, reducedValue) {
+    return {
+       maxBmi: reducedValue.maxBmi,
+       minBmi: reducedValue.minBmi,
+       avgBmi: reducedValue.sumBmi / reducedValue.count,
+//       count: reducedValue.count,
+//       sumBmi: reducedValue.sumBmi
+    }
+}
 
 
 printjson(
-    db.getCollection("outCollection").find({}).toArray()
+    db.people.mapReduce(
+        mapFunction,
+        reduceFunction,
+        {
+            out: { inline: 1 },
+            finalize: finalize2
+        }
+    )
 )
-
