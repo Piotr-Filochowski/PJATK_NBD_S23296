@@ -34,11 +34,13 @@ var finalize2 = function (key, reducedValue) {
     }
 }
 
-db.people.mapReduce(
-    mapFunction,
-    reduceFunction,
-    {
-        out: { inline: 1 },
-        finalize: finalize2
-    }
+printjson(
+    db.people.mapReduce(
+        mapFunction,
+        reduceFunction,
+        {
+            out: { inline: 1 },
+            finalize: finalize2
+        }
+    )
 )
