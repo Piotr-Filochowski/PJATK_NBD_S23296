@@ -7,3 +7,9 @@ trait Student extends Employee {
   override val tax = 0;
 //  override  def tax = 0;
 }
+
+
+
+/*
+zwracac podatek * salary od razu
+* */

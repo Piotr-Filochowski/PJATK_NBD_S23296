@@ -15,4 +15,12 @@ trait Employee extends Person {
   def getSalary(): Double = {
     return salary
   }
+
+  def calculateSalaryNet(): Double = {
+    return salary * (1 - tax)
+  }
+
+  def calculateSalaryGross(): Double = {
+    return getSalary()
+  }
 }
