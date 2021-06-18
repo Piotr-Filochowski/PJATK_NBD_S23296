@@ -1,0 +1,70 @@
+
+==============
+   Zad 1
+==============
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Rysy", "height": 2501, "country": "Poland", "range": "Tatry Wysokie" }' http://172.29.64.1:8098/buckets/s23296/keys/rysy
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Sniezka", "height": 1603, "country": "Poland", "range": "	Karkonosze, Sudety" }' http://172.29.64.1:8098/buckets/s23296/keys/sniezka
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Kilimanjaro", "height": 5885, "country": "Tanzania", "range": "Seven Summits" }' http://172.29.64.1:8098/buckets/s23296/keys/kilimanjaro
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Sokolica", "height": 747, "country": "Poland", "range": "Pieniny" }' http://172.29.64.1:8098/buckets/s23296/keys/sokolica
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Góry Stołowe" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 2
+==============
+
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 3
+==============
+
+root@717913b95c30:/var/lib/riak# curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Grrry Stoowe", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 4
+==============
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 5
+==============
+
+curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 10000, "country": "Poland", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 6
+==============
+
+curl -i -XDELETE  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 7
+==============
+
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+==============
+   Zad 8
+==============
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Szczeliniec is back"}' http://172.29.64.1:8098/buckets/s23296/keys
+
+==============
+   Zad 9
+==============
+
+Szukam mojego dokumentu:
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys?keys=true
+
+Pobieram dokument
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/RNyMv1l6nlr4MQ27ZqvxbBhUMR9
+
+==============
+   Zad 10
+==============
+curl -i -XDELETE  http://172.29.64.1:8098/buckets/s23296/keys/RNyMv1l6nlr4MQ27ZqvxbBhUMR9

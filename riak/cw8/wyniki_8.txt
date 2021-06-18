@@ -1,0 +1,23 @@
+Creatng Giewont
+----------------
+<Response [204]>
+
+Getting Giewont from db:
+----------------
+name=Giewont&height=1895
+
+Updating Giewont
+----------------
+<Response [204]>
+
+Getting Giewont from db:
+----------------
+name=Giewont&height=1895&country=Poland
+
+Delete Giewont
+----------------
+<Response [204]>
+
+Getting Giewont from db:
+----------------
+not found

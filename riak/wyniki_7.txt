@@ -1,0 +1,234 @@
+
+==========================================================================================================
+Zad 1
+==========================================================================================================
+
+INSERT 1
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Rysy", "height": 2501, "country": "Poland", "range": "Tatry Wysokie" }' http://172.29.64.1:8098/buckets/s23296/keys/rysy
+
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:14:50 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+INSERT 2
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Sniezka", "height": 1603, "country": "Poland", "range": "	Karkonosze, Sudety" }' http://172.29.64.1:8098/buckets/s23296/keys/sniezka
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:19:40 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+INSERT 3
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Kilimanjaro", "height": 5885, "country": "Tanzania", "range": "Seven Summits" }' http://172.29.64.1:8098/buckets/s23296/keys/kilimanjaro
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:21:52 GMT
+Content-Type: application/json
+Content-Length: 0
+
+INSERT 4
+
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Sokolica", "height": 747, "country": "Poland", "range": "Pieniny" }' http://172.29.64.1:8098/buckets/s23296/keys/sokolica
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:26:29 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+INSERT 5
+
+
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Góry Stołowe" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:27:49 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+==========================================================================================================
+Zad 2
+==========================================================================================================
+
+Request: 
+
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+
+Response:
+
+root@717913b95c30:/var/lib/riak# curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmd8liABEUpkzGNlOFrreIsvCwA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23296>; rel="up"
+Last-Modified: Fri, 18 Jun 2021 20:27:49 GMT
+ETag: "5phXGFhAt3pNYbu0w7mpZa"
+Date: Fri, 18 Jun 2021 20:29:08 GMT
+Content-Type: application/json
+Content-Length: 101
+
+{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Grrry Stoowe" }root@717913b95c30:/var/lib/riak#
+
+
+==========================================================================================================
+Zad 3
+==========================================================================================================
+
+root@717913b95c30:/var/lib/riak# curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Grrry Stoowe", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:34:05 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+==========================================================================================================
+Zad 4
+==========================================================================================================
+curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:35:40 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmd8liABEUpkzmNlmFPveIsvCwA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23296>; rel="up"
+Last-Modified: Fri, 18 Jun 2021 20:35:40 GMT
+ETag: "X8jKJd60ZXrwfTSY2b2nY"
+Date: Fri, 18 Jun 2021 20:36:06 GMT
+Content-Type: application/json
+Content-Length: 98
+
+{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "composition ": "Piaskowiec" }
+
+
+==========================================================================================================
+Zad 5
+==========================================================================================================
+curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 10000, "country": "Poland", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:37:03 GMT
+Content-Type: application/json
+Content-Length: 0
+
+ curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmd8liABEUpkyWNleF/veIsvCwA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23296>; rel="up"
+Last-Modified: Fri, 18 Jun 2021 20:37:03 GMT
+ETag: "2vAuDKr1YOUoJDNFUnwcko"
+Date: Fri, 18 Jun 2021 20:37:21 GMT
+Content-Type: application/json
+Content-Length: 100
+
+{ "name": "Szczeliniec Wielki", "height": 10000, "country": "Poland", "composition ": "Piaskowiec" }
+
+
+
+
+==========================================================================================================
+Zad 6
+==========================================================================================================
+
+
+
+curl -i -XDELETE  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:40:34 GMT
+Content-Type: application/json
+Content-Length: 0
+
+
+==========================================================================================================
+Zad 7
+==========================================================================================================
+ curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+HTTP/1.1 404 Object Not Found
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:40:52 GMT
+Content-Type: text/plain
+Content-Length: 10
+
+not found
+
+==========================================================================================================
+Zad 8
+==========================================================================================================
+curl -i -XPOST -H "Content-Type: application/json" -d '{ "name": "Szczeliniec is back"}' http://172.29.64.1:8098/buckets/s23296/keys
+HTTP/1.1 201 Created
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Location: /buckets/s23296/keys/RNyMv1l6nlr4MQ27ZqvxbBhUMR9
+Date: Fri, 18 Jun 2021 20:44:08 GMT
+Content-Type: application/json
+Content-Length: 0
+
+==========================================================================================================
+Zad 9
+==========================================================================================================
+Szukam mojego dokumentu:
+curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys?keys=true
+HTTP/1.1 200 OK
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:46:08 GMT
+Content-Type: application/json
+Content-Length: 82
+
+{"keys":["sokolica","rysy","RNyMv1l6nlr4MQ27ZqvxbBhUMR9","sniezka","kilimanjaro"]}
+
+
+ curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/RNyMv1l6nlr4MQ27ZqvxbBhUMR9
+HTTP/1.1 200 OK
+X-Riak-Vclock: a85hYGBgzGDKBVI8+xkWvmd8+DcIIpTImMfKMKPR8RZfFgA=
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Link: </buckets/s23296>; rel="up"
+Last-Modified: Fri, 18 Jun 2021 20:44:08 GMT
+ETag: "65Lb9iADX1AmK9a8ly6Wfg"
+Date: Fri, 18 Jun 2021 20:47:04 GMT
+Content-Type: application/json
+Content-Length: 32
+
+{ "name": "Szczeliniec is back"}
+
+
+==========================================================================================================
+Zad 10
+==========================================================================================================
+curl -i -XDELETE  http://172.29.64.1:8098/buckets/s23296/keys/RNyMv1l6nlr4MQ27ZqvxbBhUMR9
+HTTP/1.1 204 No Content
+Vary: Accept-Encoding
+Server: MochiWeb/1.1 WebMachine/1.10.9 (cafe not found)
+Date: Fri, 18 Jun 2021 20:48:05 GMT
+Content-Type: application/json
+Content-Length: 0
