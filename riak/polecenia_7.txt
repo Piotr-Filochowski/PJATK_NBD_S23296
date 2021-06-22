@@ -22,7 +22,7 @@ curl -i -XGET  http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
    Zad 3
 ==============
 
-root@717913b95c30:/var/lib/riak# curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Grrry Stoowe", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
+curl -i -XPUT -H "Content-Type: application/json" -d '{ "name": "Szczeliniec Wielki", "height": 919, "country": "Poland", "range": "Sudety, Grrry Stoowe", "composition ": "Piaskowiec" }' http://172.29.64.1:8098/buckets/s23296/keys/szczeliniec-wielki
 
 ==============
    Zad 4
