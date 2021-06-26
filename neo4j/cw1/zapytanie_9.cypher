@@ -33,4 +33,5 @@ RETURN  a, b, r
 
 
 
-
+// można dołożyć Heugh W...
+// upewnić się czy któryś z pozostałych w bazie nie jest 

@@ -10,7 +10,7 @@ def print_giewont():
     print(r1.text)
 
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
 
     print("\nCreatng Giewont")
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     print(r)
 
     print_giewont()
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
