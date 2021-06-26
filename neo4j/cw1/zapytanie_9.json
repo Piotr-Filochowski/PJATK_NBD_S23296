@@ -1,0 +1,157 @@
+﻿[
+  {
+    "a": {
+"identity": 5,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Stephen McFeely",
+"born": 1970
+      }
+    },
+    "b": {
+"identity": 0,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"tagline": "When patriots become heroes"
+      }
+    },
+    "r": {
+"identity": 4,
+"start": 5,
+"end": 0,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "a": {
+"identity": 4,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Christopher Markus",
+"born": 1970
+      }
+    },
+    "b": {
+"identity": 0,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"tagline": "When patriots become heroes"
+      }
+    },
+    "r": {
+"identity": 3,
+"start": 4,
+"end": 0,
+"type": "WROTE",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "a": {
+"identity": 3,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Joe Johnston",
+"born": 1950
+      }
+    },
+    "b": {
+"identity": 0,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"tagline": "When patriots become heroes"
+      }
+    },
+    "r": {
+"identity": 2,
+"start": 3,
+"end": 0,
+"type": "DIRECTED",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "a": {
+"identity": 2,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Samuel L. Jackson",
+"born": 1948
+      }
+    },
+    "b": {
+"identity": 0,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"tagline": "When patriots become heroes"
+      }
+    },
+    "r": {
+"identity": 1,
+"start": 2,
+"end": 0,
+"type": "ACTED_IN",
+"properties": {
+
+      }
+    }
+  },
+  {
+    "a": {
+"identity": 1,
+"labels": [
+        "Person"
+      ],
+"properties": {
+"name": "Chris Evans",
+"born": 1981
+      }
+    },
+    "b": {
+"identity": 0,
+"labels": [
+        "Movie"
+      ],
+"properties": {
+"title": "Captain America: The First Avenger",
+"tagline": "When patriots become heroes"
+      }
+    },
+    "r": {
+"identity": 0,
+"start": 1,
+"end": 0,
+"type": "ACTED_IN",
+"properties": {
+
+      }
+    }
+  }
+]
