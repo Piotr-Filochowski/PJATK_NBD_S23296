@@ -1,6 +1,6 @@
 package excersises2.task5
 
-class Person(val name: String, val surname: String, val tax: Double) {
+abstract class Person(val name: String, val surname: String, val tax: Double) {
 
 
 //  def getTax() = tax;

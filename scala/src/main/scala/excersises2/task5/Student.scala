@@ -1,6 +1,6 @@
 package excersises2.task5
 
-trait Student extends Employee {
+trait Student extends Person {
 
 //  override def getTax() = 0;
 

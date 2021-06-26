@@ -15,15 +15,8 @@ object Task5 {
     )
     for(person <- people) {
       println(person.toString())
-      println("My net income is: " + person.calculateSalaryNet())
-      println("My gross income is:  " + person.calculateSalaryGross())
+      println("My tax is: " + person.tax)
       println("------")
     }
   }
 }
-
-
-/*
-
-all good
-*/
