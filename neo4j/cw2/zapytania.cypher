@@ -1,54 +1,52 @@
-// print all nodes
-Match (n {name: 'Darjeeling'})-[r]->(m {name: 'Sandakphu'})
-Return n,r,m
 
+// zapytanie 1
 
 MATCH (n:town {name: 'Darjeeling'}), (m:peak {name: 'Sandakphu'})
 WITH n,m
-MATCH path = ShortestPath((n)-[*...5]-(m))
-Return n, r, m
+MATCH path = ShortestPath((n)-[*]-(m))
+Return path
 
 
-Match (n )-[r]->(m )
-Return n,r,m
+// zapytanie 2
+
+MATCH 
+    (n {name: 'Darjeeling'}), 
+    (m {name: 'Sandakphu'}),
+    path = ShortestPath((n)-[*]-(m))
+    WHERE all(r in relationships (path) WHERE r.winter = "true")
+Return path
 
 
-// przykladowe lotnisko
-SEA:Airport { name: 'SEA'}
+// zapytanie 3
 
-// przykladowy lot 
-(f0:Flight {
-  date:'11/30/2015 04:24:12', 
-  duration:218, 
-  distance:1721, 
-  airline:'19977'
-})
-
-(f0)-[:ORIGIN]->(SEA), 
-(f0)-[:DESTINATION]->(ORD)
-
-// przykladowy ticket
-(t1f0:Ticket {
-  class:'economy', 
-  price:1344.75
-}), 
-
-(t1f0)-[:ASSIGN]->(f0)
-
-// relacje pomocnicze:
-// HELPER_FLIGHT 
-airportA - [relationship: ] -> airportB
-// za ile można polecieć max i min 
-
-
-// zwróć mi takie airporty pomiędzy którymi jest lot 
-MATCH r1 =(airportB) <- [:DESTINATION] - (flight:Flight) - [:ORIGIN] -> (airportA:Airport)
-RETURN airportA, airportB
-
-
-MATCH r1 =(airportB) <- [:DESTINATION] - (flight:Flight) - [:ORIGIN] -> (airportA:Airport)
+MATCH p = (n {name: 'Darjeeling'}) - [*] -> (m {name: 'Sandakphu'})
 WITH
-    r1,
-    (:Ticket) - [:ASSIGN] -> (flight) AS myTicket
+    p,
+    REDUCE(x = 0, a IN relationships(p) | x + a.distance)  AS duration 
+ORDER BY duration DESC
+RETURN  duration
 
-RETURN r1, myTicket
+
+// zapytanie 4
+
+MATCH  (n) - [:ORIGIN] -> (m)
+RETURN m, count(*)
+ORDER BY count(*) DESC
+
+
+// zapytanie 5
+
+// Relacja pomocnicza:
+
+MATCH 
+r1 =(airportB) <- [:DESTINATION] - (flight:Flight) - [:ORIGIN] -> (airportA:Airport),
+r2 = (ticket:Ticket) - [:ASSIGN] -> (flight)
+CREATE (airportA) - [r:FLIGHT_HELPER {ticketPrice: ticket.price}] -> (airportB) 
+
+// zapytanie:
+MATCH
+r = (airportA:Airport) - [flight:FLIGHT_HELPER *..3] -> (airportB:Airport {name: 'LAX'})
+WITH
+r,
+REDUCE(x = 0, a IN relationships(r) | x + a.ticketPrice)  AS sumTicketPrice
+RETURN r, min(sumTicketPrice)
